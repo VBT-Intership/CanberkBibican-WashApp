@@ -7,4 +7,4 @@ Homepage discount list -> /home/discountlist.json  (https://fb-wash-app.firebase
 
 App Screen Shot
 :-------------------------:
-<img src="https://github.com/VBT-Intership/CanberkBibican-WashApp/blob/dev/screenshots/homepage.png" width="100">
+<img src="https://github.com/VBT-Intership/CanberkBibican-WashApp/blob/dev/screenshots/homepage.png" width="250">

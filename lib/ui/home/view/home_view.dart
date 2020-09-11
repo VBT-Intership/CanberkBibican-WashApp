@@ -9,10 +9,6 @@ class HomeView extends HomeViewModel {
   double get homePadding => MediaQuery.of(context).size.width * 0.05;
   double get homeButtonSize => MediaQuery.of(context).size.width * 0.08;
 
-  //NavBar
-  double get navBarRadius => MediaQuery.of(context).size.width * 0.1;
-  double get navBarPadding => MediaQuery.of(context).size.width * 0.05;
-
   //Title
   double get titleSize => MediaQuery.of(context).size.width * 0.1;
   double get subTitleSize => MediaQuery.of(context).size.width * 0.04;
@@ -32,9 +28,6 @@ class HomeView extends HomeViewModel {
 
   //------Colors-----//
   Color get appBarIconColor => Colors.lightBlue[900];
-  Color get navBarColor => Colors.white;
-  Color get navUnSelectedColor => Colors.grey[400];
-  Color get navSelectedColor => Colors.blue[700];
   Color get titleColor => Colors.blue[700];
   Color get subTitleColor => Colors.grey[400];
 
@@ -49,7 +42,6 @@ class HomeView extends HomeViewModel {
     return Scaffold(
       appBar: homeAppBar(),
       body: homeBody(),
-      bottomNavigationBar: navigationBar(context),
     );
   }
 
@@ -195,61 +187,6 @@ class HomeView extends HomeViewModel {
     return Icon(
       icon,
       size: homeCardiconSize,
-    );
-  }
-
-  //Global widget olarak düzenlenicek
-  Padding navigationBar(BuildContext context) {
-    int index = 0;
-    return Padding(
-      padding: EdgeInsets.only(
-          left: navBarPadding, right: navBarPadding, bottom: navBarPadding),
-      child: Theme(
-        data: Theme.of(context).copyWith(canvasColor: navBarColor),
-        child: ClipRRect(
-          borderRadius: BorderRadius.circular(navBarRadius),
-          child: BottomNavigationBar(
-            currentIndex: index,
-            onTap: (int _index) {
-              setState(() {
-                index = _index;
-              });
-              print(index);
-            },
-            type: BottomNavigationBarType.fixed,
-            items: [
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                    color: index == 0 ? navSelectedColor : navUnSelectedColor,
-                    size: homeButtonSize,
-                  ),
-                  title: zeroHeightSizedBox),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.comment,
-                    color: index == 1 ? navSelectedColor : navUnSelectedColor,
-                    size: homeButtonSize,
-                  ),
-                  title: zeroHeightSizedBox),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.payment,
-                    color: index == 2 ? navSelectedColor : navUnSelectedColor,
-                    size: homeButtonSize,
-                  ),
-                  title: zeroHeightSizedBox),
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.person,
-                    color: index == 3 ? navSelectedColor : navUnSelectedColor,
-                    size: homeButtonSize,
-                  ),
-                  title: zeroHeightSizedBox),
-            ],
-          ),
-        ),
-      ),
     );
   }
 }
